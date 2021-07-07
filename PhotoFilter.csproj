@@ -36,8 +36,11 @@
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
+		<Reference Include="System.Drawing" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Filter\ImageConverter.cs" />
+        <Compile Include="Filter\ImageFilter.cs" />
         <Compile Include="Filter\MatrixFilter.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
