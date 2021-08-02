@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace PhotoFilter.Filter
 {
@@ -13,10 +14,19 @@ namespace PhotoFilter.Filter
 
         public Bitmap Filter(int radius)
         {
-            var pixelMatrix = ImageConverter.ToRgbMatrix(Image);
-            MatrixFilter filter = new MatrixFilter(pixelMatrix);
-            var filtered = filter.Filter(radius);
-            return ImageConverter.FromRgbMatrix(filtered);
+            var pixelMatrices = ImageConverter.ToHsvMatrices(Image);
+            float[][,] filteredMatrices = new float[3][,];
+            for (var i = 0; i < pixelMatrices.Length; i++)
+            {
+                MatrixFilter filter = new MatrixFilter(pixelMatrices[i]);
+                filteredMatrices[i] = filter.Filter(radius);
+            }
+
+            return ImageConverter.FromHsvMatrices(
+                filteredMatrices[0],
+                filteredMatrices[1],
+                filteredMatrices[2]
+            );
         }
     }
 }
