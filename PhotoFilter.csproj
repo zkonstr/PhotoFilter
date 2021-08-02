@@ -42,6 +42,7 @@
         <Compile Include="Filter\ImageConverter.cs" />
         <Compile Include="Filter\ImageFilter.cs" />
         <Compile Include="Filter\MatrixFilter.cs" />
+        <Compile Include="Intern\HsvConverter.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
