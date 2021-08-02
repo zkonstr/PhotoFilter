@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 
 namespace PhotoFilter.Filter
 {
     public class MatrixFilter
     {
-        public MatrixFilter(int[,] matrix)
+        public MatrixFilter(float[,] matrix)
         {
             Matrix = matrix;
         }
 
-        public int[,] Matrix { get; set; }
+        public float[,] Matrix { get; set; }
 
-        public int[,] Filter(int radius)
+        public float[,] Filter(int radius)
         {
-            int[,] filtered = new int[Matrix.GetLength(0), Matrix.GetLength(1)];
+            float[,] filtered = new float[Matrix.GetLength(0), Matrix.GetLength(1)];
             for (int i = 0; i < Matrix.GetLength(0); i++)
             {
                 for (int j = 0; j < Matrix.GetLength(1); j++)
@@ -25,9 +26,9 @@ namespace PhotoFilter.Filter
             return filtered;
         }
 
-        private int DoFilter(int x, int y, int radius)
+        private float DoFilter(int x, int y, int radius)
         {
-            var neighbors = new List<int>((radius + 2) * (radius + 2));
+            var neighbors = new List<float>((radius + 2) * (radius + 2));
             for (int i = x - radius; i <= x + radius; i++)
             {
                 for (int j = y - radius; j <= y + radius; j++)
@@ -48,6 +49,7 @@ namespace PhotoFilter.Filter
             }
 
             return neighbors[(neighbors.Count / 2)];
+            
         }
     }
 }
