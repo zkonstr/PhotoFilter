@@ -29,8 +29,8 @@ namespace PhotoFilter.Intern
                 f = h - i;
 
                 p = v * (1.0 - s);
-                q = v * (1.0 - (s * f));
-                t = v * (1.0 - (s * (1.0 - f)));
+                q = v * (1.0 - s * f);
+                t = v * (1.0 - s * (1.0 - f));
 
                 switch (i)
                 {
